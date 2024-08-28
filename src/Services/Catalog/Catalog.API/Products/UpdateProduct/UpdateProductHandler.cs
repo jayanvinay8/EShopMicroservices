@@ -11,7 +11,8 @@ namespace Catalog.API.Products.UpdateProduct
 
     public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
-        public UpdateProductCommandValidator() {
+        public UpdateProductCommandValidator()
+        {
             RuleFor(command => command.Id).NotEmpty().WithMessage("Product ID is required");
             RuleFor(command => command.Name).NotEmpty().WithMessage("Name is Required")
                 .Length(2, 150).WithMessage("Name must be between 2 and 150 characters");
@@ -26,7 +27,7 @@ namespace Catalog.API.Products.UpdateProduct
             var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
             if (product == null)
             {
-                throw new ProductNotFoundException();
+                throw new ProductNotFoundException(command.Id   );
 
             }
 
