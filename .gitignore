@@ -396,5 +396,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/src/Services/Basket/Basket.Api/Properties/launchSettings.json
-/src/Services/Catalog/Catalog.API/Properties/launchSettings.json
